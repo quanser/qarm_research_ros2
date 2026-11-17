@@ -1,0 +1,19 @@
+/**:
+  ros__parameters:
+    # "physical" (attached camera), "virtual" (simulator on localhost) or "custom".
+    device_type: "physical"
+    # Joined to form the device id when device_type is "custom".
+    camera_num: "0"
+    device_num: ""
+
+    # Stream sizes, px. Colour and depth must match; the node refuses to start otherwise.
+    frame_width_rgb: 640
+    frame_height_rgb: 480
+    frame_width_depth: 640
+    frame_height_depth: 480
+    # Requested frame rate and capture loop rate, Hz.
+    frame_rate: 30.0
+
+    # Frame ids on the published images.
+    color_frame_id: "color_image"
+    depth_frame_id: "depth_image"

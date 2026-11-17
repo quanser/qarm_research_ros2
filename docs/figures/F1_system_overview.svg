@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1600px" height="828px"
+ viewBox="0.00 0.00 893.00 462.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>text {paint-order:stroke;stroke:white;stroke-width:3px;stroke-linejoin:round}</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(18 444.36)">
+<title>system</title>
+<polygon fill="white" stroke="none" points="-18,18 -18,-444.36 875.28,-444.36 875.28,18 -18,18"/>
+<text xml:space="preserve" text-anchor="middle" x="428.64" y="-41.8" font-family="Arial" font-size="14.00" fill="#1f6fb2">Blue nodes: qarm_research_rl_deploy</text>
+<text xml:space="preserve" text-anchor="middle" x="428.64" y="-25" font-family="Arial" font-size="14.00" fill="#b85a17">Orange nodes: qarm_research_hardware</text>
+<text xml:space="preserve" text-anchor="middle" x="428.64" y="-8.2" font-family="Arial" font-size="14.00">The four deploy nodes subscribe to qarm_research/joint_states.</text>
+<g id="node1" class="node">
+<title>rgbd</title>
+<ellipse fill="#fbe9da" stroke="#b85a17" stroke-width="1.15" cx="123.9" cy="-399.72" rx="123.9" ry="26.64"/>
+<text xml:space="preserve" text-anchor="middle" x="123.9" y="-394.62" font-family="Arial" font-size="17.00" fill="#343b40">rgbd (camera node)</text>
+</g>
+<g id="node2" class="node">
+<title>vision</title>
+<ellipse fill="#e2edf8" stroke="#1f6fb2" stroke-width="1.15" cx="661.9" cy="-399.72" rx="82.49" ry="26.64"/>
+<text xml:space="preserve" text-anchor="middle" x="661.9" y="-394.62" font-family="Arial" font-size="17.00" fill="#343b40">vision_node</text>
+</g>
+<g id="edge5" class="edge">
+<title>rgbd&#45;&gt;vision</title>
+<path fill="none" stroke="#1f6fb2" stroke-width="1.25" d="M248.34,-399.72C346.71,-399.72 481.77,-399.72 570.4,-399.72"/>
+<polygon fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1.25" points="570.2,-402.17 577.2,-399.72 570.2,-397.27 570.2,-402.17"/>
+<text xml:space="preserve" text-anchor="middle" x="413.6" y="-423.72" font-family="Arial" font-size="14.00" fill="#41494e">colour + depth images,</text>
+<text xml:space="preserve" text-anchor="middle" x="413.6" y="-406.92" font-family="Arial" font-size="14.00" fill="#41494e">camera info</text>
+</g>
+<g id="node3" class="node">
+<title>planner</title>
+<ellipse fill="#e2edf8" stroke="#1f6fb2" stroke-width="1.15" cx="123.9" cy="-265.21" rx="121.91" ry="26.64"/>
+<text xml:space="preserve" text-anchor="middle" x="123.9" y="-260.11" font-family="Arial" font-size="17.00" fill="#343b40">pick_place_planner</text>
+</g>
+<g id="edge6" class="edge">
+<title>vision&#45;&gt;planner</title>
+<path fill="none" stroke="#1f6fb2" stroke-width="1.25" d="M597,-382.73C500.81,-359.04 320.16,-314.55 212.06,-287.92"/>
+<polygon fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1.25" points="212.66,-285.55 205.28,-286.25 211.49,-290.3 212.66,-285.55"/>
+<text xml:space="preserve" text-anchor="middle" x="495.17" y="-335.48" font-family="Arial" font-size="14.00" fill="#41494e">vision/pick_target</text>
+</g>
+<g id="node4" class="node">
+<title>reach</title>
+<ellipse fill="#e2edf8" stroke="#1f6fb2" stroke-width="1.15" cx="661.9" cy="-265.21" rx="127.24" ry="41.07"/>
+<text xml:space="preserve" text-anchor="middle" x="661.9" y="-270.31" font-family="Arial" font-size="17.00" fill="#343b40">reach_action_server</text>
+<text xml:space="preserve" text-anchor="middle" x="661.9" y="-249.91" font-family="Arial" font-size="17.00" fill="#343b40">(RL policy)</text>
+</g>
+<g id="edge7" class="edge">
+<title>planner&#45;&gt;reach</title>
+<path fill="none" stroke="#1f6fb2" stroke-width="1.25" d="M246.31,-265.21C329.5,-265.21 439.62,-265.21 525.6,-265.21"/>
+<polygon fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1.25" points="525.48,-267.66 532.48,-265.21 525.48,-262.76 525.48,-267.66"/>
+<text xml:space="preserve" text-anchor="middle" x="390.23" y="-272.41" font-family="Arial" font-size="14.00" fill="#41494e">ReachPose goal</text>
+</g>
+<g id="node5" class="node">
+<title>bridge</title>
+<ellipse fill="#e2edf8" stroke="#1f6fb2" stroke-width="1.15" cx="123.9" cy="-99.47" rx="111.21" ry="26.64"/>
+<text xml:space="preserve" text-anchor="middle" x="123.9" y="-94.37" font-family="Arial" font-size="17.00" fill="#343b40">command_bridge</text>
+</g>
+<g id="node6" class="node">
+<title>driver</title>
+<ellipse fill="#fbe9da" stroke="#b85a17" stroke-width="1.15" cx="661.9" cy="-99.47" rx="195.38" ry="41.07"/>
+<text xml:space="preserve" text-anchor="middle" x="661.9" y="-104.57" font-family="Arial" font-size="17.00" fill="#343b40">qarm_research_hardware_interface</text>
+<text xml:space="preserve" text-anchor="middle" x="661.9" y="-84.17" font-family="Arial" font-size="17.00" fill="#343b40">(arm driver)</text>
+</g>
+<g id="edge11" class="edge">
+<title>planner&#45;&gt;driver</title>
+<path fill="none" stroke="#1f6fb2" stroke-width="1.25" d="M135.04,-238.14C146.37,-215.05 166.22,-182.44 194.07,-165.54 239.5,-137.97 358.86,-121.64 465.63,-112.23"/>
+<polygon fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1.25" points="465.63,-114.69 472.39,-111.64 465.21,-109.81 465.63,-114.69"/>
+<text xml:space="preserve" text-anchor="middle" x="253.98" y="-186.54" font-family="Arial" font-size="14.00" fill="#41494e">gripper commands,</text>
+<text xml:space="preserve" text-anchor="middle" x="253.98" y="-169.74" font-family="Arial" font-size="14.00" fill="#41494e">startup joint move</text>
+</g>
+<g id="edge8" class="edge">
+<title>reach&#45;&gt;planner</title>
+<path fill="none" stroke="#596167" stroke-width="1.25" d="M541.15,-251.66C480.47,-246.42 405.8,-242.33 338.87,-245.41 307.56,-246.85 273.76,-249.46 242.44,-252.32"/>
+<polygon fill="#596167" stroke="#596167" stroke-width="1.25" points="242.31,-249.87 235.56,-252.96 242.76,-254.75 242.31,-249.87"/>
+<text xml:space="preserve" text-anchor="middle" x="390.23" y="-249.61" font-family="Arial" font-size="14.00" fill="#41494e">feedback / result</text>
+</g>
+<g id="edge9" class="edge">
+<title>reach&#45;&gt;bridge</title>
+<path fill="none" stroke="#1f6fb2" stroke-width="1.25" d="M594.38,-230.01C539.77,-202.45 470.83,-167.88 463.9,-165.54 388.13,-139.95 299.28,-123.38 231.4,-113.37"/>
+<polygon fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1.25" points="231.97,-110.98 224.69,-112.4 231.26,-115.83 231.97,-110.98"/>
+<text xml:space="preserve" text-anchor="middle" x="586.31" y="-178.14" font-family="Arial" font-size="14.00" fill="#41494e">policy/joint_actions</text>
+</g>
+<g id="edge10" class="edge">
+<title>bridge&#45;&gt;driver</title>
+<path fill="none" stroke="#1f6fb2" stroke-width="1.25" d="M235.37,-99.47C299.46,-99.47 381.97,-99.47 457.31,-99.47"/>
+<polygon fill="#1f6fb2" stroke="#1f6fb2" stroke-width="1.25" points="457.09,-101.92 464.09,-99.47 457.09,-97.02 457.09,-101.92"/>
+<text xml:space="preserve" text-anchor="middle" x="350.81" y="-106.67" font-family="Arial" font-size="14.00" fill="#41494e">joint_trajectory_command</text>
+</g>
+<g id="edge12" class="edge">
+<title>driver&#45;&gt;planner</title>
+<path fill="none" stroke="#596167" stroke-width="1.25" d="M496.85,-121.71C451.63,-131.38 403.61,-145.36 361.86,-165.54 340.66,-175.79 341.53,-187.79 320.9,-199.14 287.3,-217.62 247.58,-231.99 212.63,-242.46"/>
+<polygon fill="#596167" stroke="#596167" stroke-width="1.25" points="212.16,-240.04 206.14,-244.37 213.55,-244.75 212.16,-240.04"/>
+<text xml:space="preserve" text-anchor="middle" x="407.38" y="-178.14" font-family="Arial" font-size="14.00" fill="#41494e">gripper current</text>
+</g>
+</g>
+</svg>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1600px" height="1392px"
+ viewBox="0.00 0.00 1302.00 1133.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>text {paint-order:stroke;stroke:white;stroke-width:3px;stroke-linejoin:round}</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(21.6 966.2)">
+<title>planner</title>
+<polygon fill="white" stroke="none" points="-21.6,167.1 -21.6,-966.2 1280.32,-966.2 1280.32,167.1 -21.6,167.1"/>
+<text xml:space="preserve" text-anchor="middle" x="629.36" y="40.15" font-family="Arial" font-size="17.00">pick, place and home are each one ReachPose goal to the RL policy;</text>
+<text xml:space="preserve" text-anchor="middle" x="629.36" y="59.65" font-family="Arial" font-size="17.00">the other states are run by the planner itself.</text>
+<text xml:space="preserve" text-anchor="middle" x="629.36" y="99.15" font-family="Arial" font-size="17.00">A failed pick or grasp counts as a failure; at max_consecutive_failures</text>
+<text xml:space="preserve" text-anchor="middle" x="629.36" y="118.65" font-family="Arial" font-size="17.00">(0 = never) the planner stops in done. A completed drop resets the count.</text>
+<text xml:space="preserve" text-anchor="middle" x="629.36" y="138.15" font-family="Arial" font-size="17.00">The home leg is retried until max_home_retries (0 = forever), then the planner stops in done.</text>
+<g id="node1" class="node">
+<title>start</title>
+<ellipse fill="#50595e" stroke="#50595e" stroke-width="1.15" cx="442.62" cy="-941" rx="3.6" ry="3.6"/>
+</g>
+<g id="node2" class="node">
+<title>init_home</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="442.62" cy="-841" rx="80.74" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="442.62" y="-833.83" font-family="Arial" font-size="19.00" fill="#343b40">init_home</text>
+</g>
+<g id="edge1" class="edge">
+<title>start&#45;&gt;init_home</title>
+<path fill="none" stroke="#596167" stroke-width="1.3" d="M442.62,-937C442.62,-921 442.62,-896 442.62,-880"/>
+<polygon fill="#596167" stroke="#596167" stroke-width="1.3" points="445.08,-880.97 442.63,-873.97 440.18,-880.97 445.08,-880.97"/>
+</g>
+<g id="node3" class="node">
+<title>wait_target</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="442.62" cy="-591" rx="87.63" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="442.62" y="-583.83" font-family="Arial" font-size="19.00" fill="#343b40">wait_target</text>
+</g>
+<g id="edge2" class="edge">
+<title>init_home&#45;&gt;wait_target</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M442.62,-810C442.62,-751 442.62,-686 442.62,-630"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="445.08,-630.97 442.63,-623.97 440.18,-630.97 445.08,-630.97"/>
+<text xml:space="preserve" text-anchor="middle" x="322.62" y="-724.9" font-family="Arial" font-size="18.00" fill="#41494e">at home joint pose</text>
+<text xml:space="preserve" text-anchor="middle" x="322.62" y="-703.9" font-family="Arial" font-size="18.00" fill="#41494e">and action server ready</text>
+</g>
+<g id="node10" class="node">
+<title>done</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="1202.62" cy="-501" rx="52.1" ry="31.67"/>
+<ellipse fill="none" stroke="#50595e" stroke-width="1.15" cx="1202.62" cy="-501" rx="56.1" ry="35.67"/>
+<text xml:space="preserve" text-anchor="middle" x="1202.62" y="-493.83" font-family="Arial" font-size="19.00" fill="#343b40">done</text>
+</g>
+<g id="edge14" class="edge">
+<title>init_home&#45;&gt;done</title>
+<path fill="none" stroke="#b96c6b" stroke-width="1.3" d="M497.62,-816C713.62,-720 928.62,-623 1144.62,-527"/>
+<polygon fill="#b96c6b" stroke="#b96c6b" stroke-width="1.3" points="1145.09,-529.44 1150.78,-524.69 1143.37,-524.85 1145.09,-529.44"/>
+<text xml:space="preserve" text-anchor="middle" x="838.62" y="-716.9" font-family="Arial" font-size="18.00" fill="#b96c6b">timed out reaching</text>
+<text xml:space="preserve" text-anchor="middle" x="838.62" y="-695.9" font-family="Arial" font-size="18.00" fill="#b96c6b">home joint pose</text>
+</g>
+<g id="node4" class="node">
+<title>pick</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="802.62" cy="-591" rx="46.8" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="802.62" y="-583.83" font-family="Arial" font-size="19.00" fill="#343b40">pick</text>
+</g>
+<g id="edge3" class="edge">
+<title>wait_target&#45;&gt;pick</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M527.62,-591C597.62,-626 672.62,-626 741.62,-594"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="742.09,-596.44 747.78,-591.69 740.37,-591.85 742.09,-596.44"/>
+<text xml:space="preserve" text-anchor="middle" x="632.62" y="-629.4" font-family="Arial" font-size="18.00" fill="#41494e">pick target received</text>
+</g>
+<g id="node5" class="node">
+<title>grasp_close</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="1002.62" cy="-341" rx="95.06" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="1002.62" y="-333.82" font-family="Arial" font-size="19.00" fill="#343b40">grasp_close</text>
+</g>
+<g id="edge4" class="edge">
+<title>pick&#45;&gt;grasp_close</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M850.62,-576C927.62,-548 982.62,-471 990.62,-380"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="992.94,-381.2 991.38,-373.95 988.08,-380.59 992.94,-381.2"/>
+<text xml:space="preserve" text-anchor="middle" x="952.62" y="-504.9" font-family="Arial" font-size="18.00" fill="#41494e">pick leg succeeded:</text>
+<text xml:space="preserve" text-anchor="middle" x="952.62" y="-483.9" font-family="Arial" font-size="18.00" fill="#41494e">close gripper</text>
+</g>
+<g id="node8" class="node">
+<title>home</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="242.63" cy="-341" rx="55.81" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="242.63" y="-333.82" font-family="Arial" font-size="19.00" fill="#343b40">home</text>
+</g>
+<g id="edge9" class="edge">
+<title>pick&#45;&gt;home</title>
+<path fill="none" stroke="#b96c6b" stroke-width="1.3" d="M760.62,-572C603.62,-502 446.62,-432 289.62,-362"/>
+<polygon fill="#b96c6b" stroke="#b96c6b" stroke-width="1.3" points="291.83,-360.28 284.43,-359.78 289.9,-364.78 291.83,-360.28"/>
+<text xml:space="preserve" text-anchor="middle" x="538.62" y="-434.9" font-family="Arial" font-size="18.00" fill="#b96c6b">pick leg failed:</text>
+<text xml:space="preserve" text-anchor="middle" x="538.62" y="-413.9" font-family="Arial" font-size="18.00" fill="#b96c6b">drop target, count failure</text>
+</g>
+<g id="node6" class="node">
+<title>place</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="802.62" cy="-91" rx="54.75" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="802.62" y="-83.83" font-family="Arial" font-size="19.00" fill="#343b40">place</text>
+</g>
+<g id="edge5" class="edge">
+<title>grasp_close&#45;&gt;place</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M991.62,-310C982.62,-221 907.62,-148 839.62,-122"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="841.63,-120.32 834.33,-118.98 839.2,-124.58 841.63,-120.32"/>
+<text xml:space="preserve" text-anchor="middle" x="992.62" y="-219.9" font-family="Arial" font-size="18.00" fill="#41494e">gripper current</text>
+<text xml:space="preserve" text-anchor="middle" x="992.62" y="-198.9" font-family="Arial" font-size="18.00" fill="#41494e">above threshold</text>
+</g>
+<g id="node9" class="node">
+<title>grasp_failed</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="622.62" cy="-341" rx="95.59" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="622.62" y="-333.82" font-family="Arial" font-size="19.00" fill="#343b40">grasp_failed</text>
+</g>
+<g id="edge10" class="edge">
+<title>grasp_close&#45;&gt;grasp_failed</title>
+<path fill="none" stroke="#b96c6b" stroke-width="1.3" d="M907.62,-341C848.62,-341 789.62,-341 730.62,-341"/>
+<polygon fill="#b96c6b" stroke="#b96c6b" stroke-width="1.3" points="731.59,-338.55 724.59,-341 731.59,-343.45 731.59,-338.55"/>
+<text xml:space="preserve" text-anchor="middle" x="814.62" y="-382.9" font-family="Arial" font-size="18.00" fill="#b96c6b">no grip detected:</text>
+<text xml:space="preserve" text-anchor="middle" x="814.62" y="-361.9" font-family="Arial" font-size="18.00" fill="#b96c6b">open gripper</text>
+</g>
+<g id="node7" class="node">
+<title>drop_open</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="442.62" cy="-91" rx="86.04" ry="31.67"/>
+<text xml:space="preserve" text-anchor="middle" x="442.62" y="-83.83" font-family="Arial" font-size="19.00" fill="#343b40">drop_open</text>
+</g>
+<g id="edge6" class="edge">
+<title>place&#45;&gt;drop_open</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M749.62,-91C672.62,-56 595.62,-56 527.62,-88"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="527.16,-85.56 521.47,-90.31 528.88,-90.15 527.16,-85.56"/>
+<text xml:space="preserve" text-anchor="middle" x="632.62" y="-24.9" font-family="Arial" font-size="18.00" fill="#41494e">place leg succeeded:</text>
+<text xml:space="preserve" text-anchor="middle" x="632.62" y="-3.9" font-family="Arial" font-size="18.00" fill="#41494e">open gripper</text>
+</g>
+<g id="edge13" class="edge">
+<title>place&#45;&gt;done</title>
+<path fill="none" stroke="#b96c6b" stroke-width="1.3" d="M855.62,-93C1092.62,-71 1202.62,-221 1202.62,-458"/>
+<polygon fill="#b96c6b" stroke="#b96c6b" stroke-width="1.3" points="1200.18,-457.03 1202.63,-464.03 1205.08,-457.03 1200.18,-457.03"/>
+<text xml:space="preserve" text-anchor="middle" x="1192.62" y="-114.9" font-family="Arial" font-size="18.00" fill="#b96c6b">place leg failed:</text>
+<text xml:space="preserve" text-anchor="middle" x="1192.62" y="-93.9" font-family="Arial" font-size="18.00" fill="#b96c6b">hold object, stop</text>
+</g>
+<g id="edge7" class="edge">
+<title>drop_open&#45;&gt;home</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M393.62,-107C312.62,-161 257.62,-221 253.62,-302"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="251.18,-301.03 253.63,-308.03 256.08,-301.03 251.18,-301.03"/>
+<text xml:space="preserve" text-anchor="middle" x="302.62" y="-194.4" font-family="Arial" font-size="18.00" fill="#41494e">gripper open</text>
+</g>
+<g id="edge8" class="edge">
+<title>home&#45;&gt;wait_target</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M257.62,-372C277.62,-460 339.62,-523 400.62,-561"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="398.62,-562.68 405.92,-564.02 401.05,-558.42 398.62,-562.68"/>
+<text xml:space="preserve" text-anchor="middle" x="302.62" y="-494.4" font-family="Arial" font-size="18.00" fill="#41494e">home leg succeeded</text>
+</g>
+<g id="edge12" class="edge">
+<title>home&#45;&gt;home</title>
+<path fill="none" stroke="#b96c6b" stroke-width="1.3" d="M199.62,-355C132.62,-391 132.62,-291 192.62,-323"/>
+<polygon fill="#b96c6b" stroke="#b96c6b" stroke-width="1.3" points="190.62,-324.68 197.92,-326.02 193.05,-320.42 190.62,-324.68"/>
+<text xml:space="preserve" text-anchor="middle" x="62.62" y="-344.9" font-family="Arial" font-size="18.00" fill="#b96c6b">home leg failed:</text>
+<text xml:space="preserve" text-anchor="middle" x="62.62" y="-323.9" font-family="Arial" font-size="18.00" fill="#b96c6b">retry</text>
+</g>
+<g id="edge11" class="edge">
+<title>grasp_failed&#45;&gt;home</title>
+<path fill="none" stroke="#b96c6b" stroke-width="1.3" d="M522.62,-341C448.62,-341 373.62,-341 299.62,-341"/>
+<polygon fill="#b96c6b" stroke="#b96c6b" stroke-width="1.3" points="300.59,-338.55 293.59,-341 300.59,-343.45 300.59,-338.55"/>
+<text xml:space="preserve" text-anchor="middle" x="407.62" y="-354.4" font-family="Arial" font-size="18.00" fill="#b96c6b">gripper open</text>
+</g>
+</g>
+</svg>

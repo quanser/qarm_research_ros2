@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1600px" height="1390px"
+ viewBox="0.00 0.00 616.00 535.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>text {paint-order:stroke;stroke:white;stroke-width:3px;stroke-linejoin:round}</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(32.4 502.87)">
+<title>vision</title>
+<polygon fill="white" stroke="none" points="-32.4,32.4 -32.4,-502.87 583.15,-502.87 583.15,32.4 -32.4,32.4"/>
+<text xml:space="preserve" text-anchor="middle" x="275.38" y="-453.17" font-family="Arial" font-size="14.00">Detections farther than 0.8 m from the camera are discarded before any state sees them.</text>
+<g id="node1" class="node">
+<title>start</title>
+<ellipse fill="#50595e" stroke="#50595e" stroke-width="1.15" cx="211.18" cy="-443.12" rx="3.6" ry="3.6"/>
+</g>
+<g id="node2" class="node">
+<title>wait_stable</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="211.18" cy="-372.44" rx="82.86" ry="30.08"/>
+<text xml:space="preserve" text-anchor="middle" x="211.18" y="-366.04" font-family="Arial" font-size="17.00" fill="#343b40">wait_stable</text>
+</g>
+<g id="edge1" class="edge">
+<title>start&#45;&gt;wait_stable</title>
+<path fill="none" stroke="#596167" stroke-width="1.3" d="M211.18,-439.17C211.18,-434.1 211.18,-423.15 211.18,-411.61"/>
+<polygon fill="#596167" stroke="#596167" stroke-width="1.3" points="213.63,-411.74 211.18,-404.74 208.73,-411.74 213.63,-411.74"/>
+</g>
+<g id="edge6" class="edge">
+<title>wait_stable&#45;&gt;wait_stable</title>
+<path fill="none" stroke="#596167" stroke-width="1.3" d="M291.49,-380.75C303.73,-379.48 312.04,-376.71 312.04,-372.44 312.04,-369.31 307.56,-366.98 300.33,-365.46"/>
+<polygon fill="#596167" stroke="#596167" stroke-width="1.3" points="300.73,-363.05 293.44,-364.43 300,-367.89 300.73,-363.05"/>
+<text xml:space="preserve" text-anchor="middle" x="393.42" y="-375.09" font-family="Arial" font-size="13.00" fill="#41494e">no new frame, or no object:</text>
+<text xml:space="preserve" text-anchor="middle" x="393.42" y="-360.09" font-family="Arial" font-size="13.00" fill="#41494e">keep waiting</text>
+</g>
+<g id="node3" class="node">
+<title>stable_delay</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="211.18" cy="-246.28" rx="90.81" ry="30.08"/>
+<text xml:space="preserve" text-anchor="middle" x="211.18" y="-239.88" font-family="Arial" font-size="17.00" fill="#343b40">stable_delay</text>
+</g>
+<g id="edge2" class="edge">
+<title>wait_stable&#45;&gt;stable_delay</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M134.78,-360.25C93.56,-352.48 48.63,-340.59 36.18,-324.36 8.29,-287.97 61.43,-268.41 116.28,-258.11"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="116.7,-260.53 123.15,-256.88 115.83,-255.71 116.7,-260.53"/>
+<text xml:space="preserve" text-anchor="middle" x="112.68" y="-312.01" font-family="Arial" font-size="13.00" fill="#41494e">10 detections agree</text>
+<text xml:space="preserve" text-anchor="middle" x="112.68" y="-297.01" font-family="Arial" font-size="13.00" fill="#41494e">within 0.2 m of their mean</text>
+</g>
+<g id="edge3" class="edge">
+<title>stable_delay&#45;&gt;wait_stable</title>
+<path fill="none" stroke="#b96c6b" stroke-width="1.3" d="M211.18,-276.92C211.18,-293.85 211.18,-315.25 211.18,-333.4"/>
+<polygon fill="#b96c6b" stroke="#b96c6b" stroke-width="1.3" points="208.73,-333.05 211.18,-340.05 213.63,-333.05 208.73,-333.05"/>
+<text xml:space="preserve" text-anchor="middle" x="277.56" y="-312.01" font-family="Arial" font-size="13.00" fill="#b96c6b">detection lost,</text>
+<text xml:space="preserve" text-anchor="middle" x="277.56" y="-297.01" font-family="Arial" font-size="13.00" fill="#b96c6b">or samples spread out</text>
+</g>
+<g id="node4" class="node">
+<title>idle_wait_home</title>
+<ellipse fill="white" stroke="#50595e" stroke-width="1.15" cx="285.18" cy="-120.12" rx="107.25" ry="30.08"/>
+<text xml:space="preserve" text-anchor="middle" x="285.18" y="-113.72" font-family="Arial" font-size="17.00" fill="#343b40">idle_wait_home</text>
+</g>
+<g id="edge4" class="edge">
+<title>stable_delay&#45;&gt;idle_wait_home</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M217.2,-216C221.15,-200.95 227.31,-182.76 236.43,-168.2 239.16,-163.86 242.36,-159.63 245.81,-155.6"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="247.57,-157.31 250.47,-150.48 243.95,-154.01 247.57,-157.31"/>
+<text xml:space="preserve" text-anchor="middle" x="290.81" y="-185.85" font-family="Arial" font-size="13.00" fill="#41494e">stable for 2 s:</text>
+<text xml:space="preserve" text-anchor="middle" x="290.81" y="-170.85" font-family="Arial" font-size="13.00" fill="#41494e">publish pick target</text>
+</g>
+<g id="edge5" class="edge">
+<title>idle_wait_home&#45;&gt;wait_stable</title>
+<path fill="none" stroke="#15847f" stroke-width="1.3" d="M329.55,-147.99C335.87,-153.83 341.48,-160.58 345.18,-168.2 375.54,-230.61 385.31,-267.73 345.18,-324.36 333.57,-340.75 315.79,-351.47 296.93,-358.48"/>
+<polygon fill="#15847f" stroke="#15847f" stroke-width="1.3" points="296.2,-356.14 290.37,-360.72 297.78,-360.78 296.2,-356.14"/>
+<text xml:space="preserve" text-anchor="middle" x="447.12" y="-248.93" font-family="Arial" font-size="13.00" fill="#41494e">arm left home, then back</text>
+<text xml:space="preserve" text-anchor="middle" x="447.12" y="-233.93" font-family="Arial" font-size="13.00" fill="#41494e">within 0.08 m for 5 cycles</text>
+</g>
+<g id="node5" class="node">
+<title>paused</title>
+<polygon fill="white" stroke="none" stroke-width="1.15" points="360.27,-53.04 210.09,-53.04 210.09,0 360.27,0 360.27,-53.04"/>
+<text xml:space="preserve" text-anchor="middle" x="285.18" y="-29.17" font-family="Arial" font-size="13.00" fill="#343b40">Detection paused</text>
+<text xml:space="preserve" text-anchor="middle" x="285.18" y="-14.17" font-family="Arial" font-size="13.00" fill="#343b40">while the arm works</text>
+</g>
+<g id="edge7" class="edge">
+<title>idle_wait_home&#45;&gt;paused</title>
+<path fill="none" stroke="#969da1" stroke-width="1.3" stroke-dasharray="5,2" d="M285.18,-89.63C285.18,-77.81 285.18,-64.33 285.18,-52.95"/>
+</g>
+</g>
+</svg>

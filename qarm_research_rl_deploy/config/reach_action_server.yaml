@@ -1,0 +1,20 @@
+/**:
+  ros__parameters:
+    # The policy and its training constants come from run_dir; target, tolerance
+    # and time limit come with each ReachPose goal.
+
+    joint_state_topic: "qarm_research/joint_states"
+    # Wait for the first joint state of a goal, s.
+    joint_state_wait_sec: 2.0
+    # Oldest joint state the policy acts on, by header stamp, s.
+    joint_state_max_age_sec: 0.2
+    # Stale joint states for this long abort the goal, s.
+    joint_state_stale_timeout_sec: 1.0
+    # Goal feedback rate, Hz.
+    feedback_rate_hz: 5.0
+    # Hardware joint names, in the order of env.yaml's action term.
+    joint_names: ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5", "joint_6"]
+
+    # Publish the observation and absolute joint targets; set by the launch debug argument.
+    debug_topics: false
+    observation_topic: "policy/observation"

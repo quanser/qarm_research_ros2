@@ -1,0 +1,17 @@
+/**:
+  ros__parameters:
+    input_topic: "policy/joint_actions"
+    output_topic: "qarm_research/joint_trajectory_command"
+    joint_state_topic: "qarm_research/joint_states"
+    joint_names: ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5", "joint_6"]
+
+    # Action scale and reference pose come from run_dir/params/env.yaml.
+
+    # Command publish rate, Hz.
+    publish_rate_hz: 100.0
+    # No policy action for this long: hold once and release the topic, s.
+    policy_action_timeout_sec: 0.05
+    # Oldest joint state the bridge will step from, s.
+    joint_state_max_age_sec: 0.2
+    # Time constant of the step toward the target, s (about 63% of the way). Larger is slower.
+    time_to_target_sec: 0.4

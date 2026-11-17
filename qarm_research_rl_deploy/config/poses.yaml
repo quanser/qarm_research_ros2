@@ -1,0 +1,22 @@
+# All of the task geometry. The launch file passes this to pick_place_planner and
+# vision_node ahead of their own params files, so keep these keys out of those files.
+#
+# Poses are in the robot base frame. Quaternions are w-first [qw, qx, qy, qz], as
+# the policy was trained; only unit length is checked, so an xyzw value passes.
+/**:
+  ros__parameters:
+    # Home pose for the policy, and vision's re-arm gate. The xyz is the forward
+    # kinematics of home_joint_pos.
+    home_target_pose_xyz_wxyz: [0.139671, -0.079774, 0.473529, 0.13239568, -0.70204616, 0.68759596, -0.12967058]
+
+    # Startup joint move, DH convention, rad.
+    home_joint_pos: [0.26, 2.44, -2.0, 1.57, 1.57, 0.26]
+
+    # Place pose, sent as the place goal every cycle.
+    place_target_pose_xyz_wxyz: [0.1, 0.15, 0.45, 0.25881907, -0.9659258, 0.0, 0.0]
+
+    # Gripper orientation for every pick.
+    target_quat_wxyz: [0.0, -0.7071, 0.7071, 0.0]
+
+    # Wrist height for every pick, m. Vision does not measure object height.
+    target_z: 0.28

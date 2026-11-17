@@ -1,0 +1,50 @@
+/**:
+  ros__parameters:
+    color_topic: "camera/color_image"
+    depth_topic: "camera/depth_image"
+    depth_info_topic: "camera/depth_info"
+    # Largest stamp difference for a colour and depth pair, s.
+    sync_slop_sec: 0.05
+
+    # YOLO weights path; empty uses model_filename from the package resources.
+    model_path: ""
+    model_filename: "yolov8s-shapes-seg.pt"
+    # Class ids treated as graspable; empty accepts every class.
+    target_classes: [0, 1]
+    # Minimum detection confidence, 0 to 1.
+    confidence: 0.75
+    # Inference device; empty picks CUDA when available.
+    device: ""
+    # Passed to the pit YOLOv8 wrapper; true has it convert the weights to TensorRT.
+    convert_tensorrt: false
+    # Publish annotated detections; set by the launch debug argument.
+    publish_debug_image: false
+    # Annotated image rate, Hz.
+    debug_image_rate_hz: 5.0
+    debug_image_topic: "vision/debug_image"
+
+    # Detection loop rate, Hz.
+    control_rate_hz: 30.0
+    joint_state_topic: "qarm_research/joint_states"
+    joint_names: ["joint_1", "joint_2", "joint_3", "joint_4", "joint_5", "joint_6"]
+
+    # Pick target out, [x, y, z, qw, qx, qy, qz]. Orientation and z come from poses.yaml.
+    target_topic: "vision/pick_target"
+
+    # Depth at or below this reads as no object, m.
+    cam_zero_epsilon: 1.0e-06
+    # Detections further than this from the camera are dropped, m; 0 disables.
+    max_detection_distance_m: 0.8
+    # Samples that must agree before a target is stable.
+    stability_window_size: 10
+    # Largest spread of those samples from their mean, m.
+    stability_position_tolerance_m: 0.2
+    # Time a stable detection must hold before it is published, s.
+    stable_publish_delay_sec: 2.0
+
+    # Distance from home that counts as back home for re-arming, m.
+    home_position_tolerance_m: 0.08
+    # Consecutive ticks at home before re-arming.
+    home_hold_cycles: 5
+    # Empty detections on new frames tolerated before a warning.
+    no_data_warn_threshold: 10

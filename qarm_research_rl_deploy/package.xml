@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>qarm_research_rl_deploy</name>
+  <version>0.1.0</version>
+  <description>
+    Deployment nodes for the QArm Research reach policy: a vision node that
+    detects an object and publishes a pick target, a planner that sequences the
+    pick, place and home legs, a policy node that serves the ReachPose action,
+    and a bridge that turns policy actions into trajectory commands.
+  </description>
+  <maintainer email="zinan.cen@quanser.com">Zinan Cen</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>qarm_research_rl_interfaces</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>ament_index_python</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>python3-yaml</depend>
+  <depend>python3-numpy</depend>
+  <depend>geometry_msgs</depend>
+
+  <!-- vision_node only. -->
+  <exec_depend>python3-opencv</exec_depend>
+  <exec_depend>message_filters</exec_depend>
+
+  <!-- Driver and camera, included by pick_place_launch.py. -->
+  <exec_depend>qarm_research_hardware</exec_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

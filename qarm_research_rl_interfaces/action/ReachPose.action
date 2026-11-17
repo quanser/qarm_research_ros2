@@ -1,0 +1,19 @@
+# Goal
+# Target pose for the end effector, in the robot base frame. No frame handling:
+# the caller is responsible for expressing the pose in that frame.
+geometry_msgs/Pose target
+# Distance from the target that counts as arrived, in metres. Must be > 0.
+float32 position_tolerance_m
+# Time limit for this goal, in seconds. Must be > 0.
+float32 timeout_sec
+---
+# Result
+bool succeeded
+# End-effector distance to the target when the goal ended, in metres
+float32 final_distance
+# Why the goal ended, e.g. "Reached target", "Timed out", "No joint states"
+string message
+---
+# Feedback
+float32 distance_to_target
+float32 running_time_sec
